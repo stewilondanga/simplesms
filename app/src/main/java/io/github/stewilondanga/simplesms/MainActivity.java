@@ -17,14 +17,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
-                    Manifest.permission.READ_PHONE_STATE)) {
+                    Manifest.permission.SEND_SMS)) {
                 ActivityCompat.requestPermissions(MainActivity.this,
-                        new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+                        new String[]{Manifest.permission.SEND_SMS}, 1);
             } else {
                 ActivityCompat.requestPermissions(MainActivity.this,
-                        new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+                        new String[]{Manifest.permission.SEND_SMS}, 1);
             }
         } else {
             // do nothing
@@ -38,12 +38,13 @@ public class MainActivity extends AppCompatActivity {
             case 1:{
                 if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     if (ContextCompat.checkSelfPermission(MainActivity.this,
-                            Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED){
+                            Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
                         Toast.makeText(this, "Permission granted!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(this, "No Permission granted!", Toast.LENGTH_SHORT).show();
                 }
+                return;
             }
         }
     }
