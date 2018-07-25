@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage(number, null, sms, null, null);
                     Toast.makeText(MainActivity.this, "Sent!", Toast.LENGTH_SHORT).show();
-                } catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(MainActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -59,18 +59,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults){
-        switch (requestCode){
-            case 1:{
-                if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case 1: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if (ContextCompat.checkSelfPermission(MainActivity.this,
-                            Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+                            Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                         Toast.makeText(this, "Permission granted!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(this, "No Permission granted!", Toast.LENGTH_SHORT).show();
                 }
-                return;
+
             }
         }
     }
