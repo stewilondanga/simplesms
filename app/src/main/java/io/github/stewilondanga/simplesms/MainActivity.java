@@ -32,20 +32,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults){
-        switch (requestCode){
-            case 1:{
-                if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    if (ContextCompat.checkSelfPermission(MainActivity.this,
-                            Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                        Toast.makeText(this, "Permission granted!", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(this, "No Permission granted!", Toast.LENGTH_SHORT).show();
-                }
-                return;
-            }
-        }
-    }
+    //@Override
+    //public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults){
+        //switch (requestCode){
+            //case 1:{
+                //if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    //if (ContextCompat.checkSelfPermission(MainActivity.this,
+                      //      Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+                    //    Toast.makeText(this, "Permission granted!", Toast.LENGTH_SHORT).show();
+                  //  }
+                //} else {
+              //      Toast.makeText(this, "No Permission granted!", Toast.LENGTH_SHORT).show();
+            //    }
+          //      return;
+        //    }
+      //  }
+    //}
 }
