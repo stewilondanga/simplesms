@@ -39,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
                 if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     if (ContextCompat.checkSelfPermission(MainActivity.this,
                             Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED){
-                        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Permission granted!", Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Toast.makeText(this, "No Permission granted!", Toast.LENGTH_SHORT).show();
                 }
             }
         }
